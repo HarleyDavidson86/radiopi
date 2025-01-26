@@ -106,7 +106,35 @@ and browse to http://localhost
 
 ### Installation on a raspberry pi
 
-TBD
+Tested with a raspberry pi 2 model b and raspberry pi os lite on it.
+
+```
+# Install lighttpd and php module
+sudo apt install lighttpd php8.2-fpm
+# Enable php modules
+sudo lighttpd-enable-mod fastcgi
+sudo lighttpd-enable-mod fastcgi-php
+```
+
+Make some changes to the following file `sudo nano /etc/lighttpd/conf-available/15-fastcgi-php.conf`
+because we want to use fpm insteag of cgi:
+
+```
+# -*- depends: fastcgi -*-
+# /usr/share/doc/lighttpd/fastcgi.txt.gz
+
+## Start an FastCGI server for php
+fastcgi.server += ( ".php" =>
+        ((
+                "socket" => "/var/run/php/php8.2-fpm.sock",
+                "broken-scriptfilename" => "enable"
+        ))
+)
+```
+
+Reload the lighttpd server with `sudo service lighttpd force-reload`.
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
