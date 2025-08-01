@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadioPi</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="topbar">
+        <div class="title">RadioPi</div>
+        <button class="settings-btn">&#9881;</button>
+    </div>
+    <main class="tile-container">
+        <button class="tile">
+            <span class="tile-icon">&#128251;</span>
+            <span class="tile-label">Radio</span>
+        </button>
+        <button class="tile">
+            <span class="tile-icon">&#127911;</span>
+            <span class="tile-label">Musik</span>
+        </button>
+        <button class="tile">
+            <span class="tile-icon">&#128264;</span>
+            <span class="tile-label">Lautstärke</span>
+        </button>
+        <button class="tile">
+            <span class="tile-icon">&#9881;</span>
+            <span class="tile-label">System</span>
+        </button>
+    </main>
+    <div class="bottombar">
+        <div class="info-left">Aktuell: Radio Klassik</div>
+        <div id="info-right">12:34 • Verbunden</div>
+    </div>
+    <p th:text="|Hallo, ${name}!|" />
+    <!-- Weitere Inhalte können hier ergänzt werden -->
+
+    <script>
+        const getData = () => {
+            fetch('currenttime').then(function (response) {
+                return response.text();
+            }).then(function (html) {
+                console.log(html)
+                document.getElementById("info-right").innerHTML = html;
+            }).catch(function (err) {
+                console.warn('Something went wrong.', err);
+            });
+        }
+        window.setInterval(getData, 10000);
+    </script>
+</body>
+</html>
