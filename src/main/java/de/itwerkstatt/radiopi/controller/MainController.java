@@ -1,5 +1,6 @@
 package de.itwerkstatt.radiopi.controller;
 
+import de.itwerkstatt.radiopi.services.RadiostationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,16 +12,21 @@ import java.time.format.DateTimeFormatter;
 @Controller
 public class MainController {
 
-    @GetMapping("/")
-    public String greeting(@RequestParam(name="name", required = false, defaultValue = "World") String name, Model model) {
-        // This method returns the name of the view to be rendered
-        model.addAttribute("name", name); // Add the name attribute to the model
-        return "index"; // The view name is "greeting", which corresponds to greeting.html in the templates directory
+    private final RadiostationService service;
+
+    public MainController(RadiostationService service) {
+        this.service = service; // Initialize the RadiostationService
     }
 
-    @GetMapping("/currenttime")
+    @GetMapping("/")
+    public String showMainView(Model model) {
+        model.addAttribute("radiostations", service.getRadiostations());
+        return "index"; // The view name is "index", which corresponds to index.html in the templates directory
+    }
+
+    @GetMapping("/inforight")
     public String currentTime(Model model) {
         model.addAttribute("time", LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm")));
-        return "currenttime";
+        return "inforight";
     }
 }
