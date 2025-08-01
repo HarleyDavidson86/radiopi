@@ -12,21 +12,9 @@
         <button class="settings-btn">&#9881;</button>
     </div>
     <main class="tile-container">
-        <button class="tile">
+        <button class="tile" th:each="station : ${radiostations}">
             <span class="tile-icon">&#128251;</span>
-            <span class="tile-label">Radio</span>
-        </button>
-        <button class="tile">
-            <span class="tile-icon">&#127911;</span>
-            <span class="tile-label">Musik</span>
-        </button>
-        <button class="tile">
-            <span class="tile-icon">&#128264;</span>
-            <span class="tile-label">Lautstärke</span>
-        </button>
-        <button class="tile">
-            <span class="tile-icon">&#9881;</span>
-            <span class="tile-label">System</span>
+            <span class="tile-label" th:text="${station.name}"></span>
         </button>
     </main>
     <div class="bottombar">
@@ -38,7 +26,7 @@
 
     <script>
         const getData = () => {
-            fetch('currenttime').then(function (response) {
+            fetch('inforight').then(function (response) {
                 return response.text();
             }).then(function (html) {
                 console.log(html)
@@ -47,6 +35,9 @@
                 console.warn('Something went wrong.', err);
             });
         }
+        // Initial call to fetch data
+        getData();
+        // Set interval to fetch data every 10 seconds
         window.setInterval(getData, 10000);
     </script>
 </body>
