@@ -1,2 +1,2 @@
 displayname=SWR 4
-url=https://liveradio.swr.de/sw282p3/swr4bw.mp3
+url=https://liveradio.swr.de/sw282p3/swr4bw

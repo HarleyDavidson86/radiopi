@@ -1,2 +1,2 @@
 displayname=DASDING
-url=https://liveradio.swr.de/sw282p3/dasding.mp3
+url=https://liveradio.swr.de/sw282p3/dasding
