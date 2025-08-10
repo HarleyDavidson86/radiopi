@@ -1,0 +1,2 @@
+displayname=SWR 1
+url=https://liveradio.swr.de/sw282p3/swr1bw.mp3
