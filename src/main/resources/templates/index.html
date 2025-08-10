@@ -14,7 +14,7 @@
     </div>
     <main class="tile-container">
         <button th:attr="onclick=|changeRadiostation('${station.id}')|" class="tile" th:each="station : ${radiostations}">
-            <span class="tile-icon">&#128251;</span>
+            <img class="tile-icon" th:src="@{'data:image/jpeg;base64,'+${station.imagePath}}" />
             <span class="tile-label" th:text="${station.name}"></span>
         </button>
     </main>

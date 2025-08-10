@@ -62,8 +62,9 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 .tile-icon {
-    font-size: 3rem;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
+    width: 100px;
+    border-radius: 10px;
 }
 .tile-label {
     font-size: 1.3rem;
