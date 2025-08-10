@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RadioPi</title>
     <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <script th:src="@{/js/changeRadiostation.js}"></script>
 </head>
 <body>
     <div class="topbar">
@@ -12,7 +13,7 @@
         <button class="settings-btn">&#9881;</button>
     </div>
     <main class="tile-container">
-        <button class="tile" th:each="station : ${radiostations}">
+        <button th:attr="onclick=|changeRadiostation('${station.id}')|" class="tile" th:each="station : ${radiostations}">
             <span class="tile-icon">&#128251;</span>
             <span class="tile-label" th:text="${station.name}"></span>
         </button>
