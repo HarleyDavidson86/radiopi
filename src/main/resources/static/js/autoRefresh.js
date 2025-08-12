@@ -1,5 +1,5 @@
 const getData = () => {
-    fetch('inforight').then(function (response) {
+    fetch('inforightbottom').then(function (response) {
         return response.text();
     }).then(function (html) {
         console.log(html)
@@ -7,6 +7,14 @@ const getData = () => {
     }).catch(function (err) {
         console.warn('Something went wrong.', err);
     });
+    fetch('infoleftbottom').then(function (response) {
+            return response.text();
+        }).then(function (html) {
+            console.log(html)
+            document.getElementById("info-left").innerHTML = html;
+        }).catch(function (err) {
+            console.warn('Something went wrong.', err);
+        });
 }
 // Initial call to fetch data
 getData();
