@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadioPi</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <script src="{% static 'js/changeRadiostation.js' %}"></script>
+</head>
+<body>
+    <div class="topbar">
+        <div class="title">RadioPi</div>
+        <button class="settings-btn">&#9881;</button>
+    </div>
+    <main class="tile-container">
+        <!-- TODO loop over stations and create buttons -->
+        <button onclick="changeRadiostation('1')" class="tile">
+            <img class="tile-icon" src="{% static 'images/radio.png' %}" alt="Radio" />
+            <span class="tile-label">Dummy Station</span>
+        </button>
+    </main>
+    <div class="bottombar">
+        <div id="info-left">Aktuell: Radio Klassik</div>
+        <div id="info-right">12:34 • Verbunden</div>
+    </div>
+
+    <script src="{% static 'js/autoRefresh.js' %}"></script>
+</body>
+</html>

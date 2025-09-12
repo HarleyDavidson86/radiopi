@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+*.env
+.env
+venv/
+ENV/
+.env.*
+
+# Django
+*.log
+db.sqlite3
+media/
+staticfiles/
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Java
+javastuff/target/
+*.class
+
+# Misc
+*.swp
+*.swo
+.idea/
+*.iml
+radiostations
