@@ -45,7 +45,7 @@ radiopi/
 
 2. **Create a virtual environment** (recommended):
    ```bash
-   python -m venv venv
+   python -m venv ./
    
    # On Windows:
    venv\Scripts\activate
@@ -54,9 +54,9 @@ radiopi/
    source venv/bin/activate
    ```
 
-3. **Install Django**:
+3. **Install Modules in virtual environment**:
    ```bash
-   pip install django==4.2.11
+   pip install -r requirements.txt
    ```
 
 4. **Run database migrations**:

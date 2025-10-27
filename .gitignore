@@ -28,13 +28,15 @@ staticfiles/
 .DS_Store
 Thumbs.db
 
-# Java
-javastuff/target/
-*.class
-
 # Misc
 *.swp
 *.swo
 .idea/
 *.iml
 radiostations
+
+# Environments
+venv/
+bin/
+lib/
+lib64
