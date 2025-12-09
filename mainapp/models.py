@@ -5,3 +5,6 @@ class RadioStation(models.Model):
     name = models.CharField(max_length=50)
     url = models.URLField()
     logo = models.ImageField()
+
+    def __str__(self):
+        return f"{self.short_name} - {self.name}"
