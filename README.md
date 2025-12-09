@@ -45,18 +45,19 @@ radiopi/
 
 2. **Create a virtual environment** (recommended):
    ```bash
-   python -m venv ./
+   # Optional: Install pipenv
+   sudo apt install pipenv
+   # Activate / Enter virtual environment
+   pipenv shell
+
+   # Exit virtual environment
+   exit
    
-   # On Windows:
-   venv\Scripts\activate
-   
-   # On Linux/Mac:
-   source venv/bin/activate
    ```
 
 3. **Install Modules in virtual environment**:
    ```bash
-   pip install -r requirements.txt
+   pipenv install -e .
    ```
 
 4. **Run database migrations**:
