@@ -14,11 +14,15 @@
         <button class="settings-btn">&#9881;</button>
     </div>
     <main class="tile-container">
+        {% for station in stations %}
         <!-- TODO loop over stations and create buttons -->
-        <button onclick="changeRadiostation('1')" class="tile">
-            <img class="tile-icon" src="{% static 'images/radio.png' %}" alt="Radio" />
-            <span class="tile-label">Dummy Station</span>
+        <button onclick="changeRadiostation('{{ station.id }}')" class="tile">
+            <img class="tile-icon" src="{{ station.logo.url }}" alt="Radio" />
+            <span class="tile-label">{{ station.short_name }}</span>
         </button>
+        {% empty %}
+            <p>No radio stations configured.</p>
+        {% endfor %}
     </main>
     <div class="bottombar">
         <div id="info-left">Aktuell: Radio Klassik</div>
